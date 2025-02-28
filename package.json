@@ -1,0 +1,11 @@
+{
+  "name": "mega-backend",
+  "version": "1.0.0",
+  "description": "A Mega Backend",
+  "main": "index.js",
+  "scripts": {
+    "test": "javascript , backend"
+  },
+  "author": "chetan sahu",
+  "license": "ISC"
+}
