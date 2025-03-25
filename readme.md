@@ -8,3 +8,14 @@ Nodemon is a dev dependency so do not install it like npm i nodemon
 do it like: npm install --save-dev nodemon
 and then go to scripts in pacakage.json and write 
 "dev" : "nodemon src/index.js"
+
+## now set the folders and perttier
+
+## Now set the mongoDB atlas and then set link in .env
+
+now install mongoose express and dotenv
+then there are two approaches to connect to db one is ifi and second is in db
+-- Always remember the try catch and async await while connecting to db because db is another continent.
+-- As early as possible , import the dotenv to our file because it make access of every .env file to all other files.
+  traditional method to import dotenv : require('dotenv').config({path:'./env'})
+  but we will use another method 
