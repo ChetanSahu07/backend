@@ -18,4 +18,9 @@ then there are two approaches to connect to db one is ifi and second is in db
 -- Always remember the try catch and async await while connecting to db because db is another continent.
 -- As early as possible , import the dotenv to our file because it make access of every .env file to all other files.
   traditional method to import dotenv : require('dotenv').config({path:'./env'})
-  but we will use another method 
+  but we will use another method which need change in dev script. 
+
+## we use app.use() for middlewares and having configurations
+
+## step 5
+Install cookie-parser and cors then import it in app.js 

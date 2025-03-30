@@ -4,15 +4,29 @@
 import dotenv from "dotenv"
 // to use the above syntax of dotenv, we need to add something in script dev in package.json
 import mongoose from "mongoose"
-import { DB_NAME } from "./constants.js";
 import connectDB from "./db/index.js";
-
+import { app } from "./app.js";
 
 dotenv.config({
     path:'./env'
 })
 
-connectDB();
+// connectDB is a async funtion so it returns a promise so we can use .then() and .catch()
+connectDB()
+.then(()=>{
+    app.on("error", (err)=>{
+        console.log("MONGODB error ", err);
+        throw err ;
+    })
+
+    app.listen( process.env.PORT || 8000 , ()=>{
+        console.log(`App is listening on port ${process.env.PORT}`);
+    })
+})
+.catch((err)=>{
+    console.log("MONGODB connection failed " , err);
+    
+})
 
 
 
@@ -48,7 +62,7 @@ connectDB();
 // mongoose.connect(dburl/dbname)
 
 /*
-
+import { DB_NAME } from "./constants.js";
 import express from 'express'
 
 const app = express()
