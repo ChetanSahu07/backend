@@ -3,7 +3,6 @@
 
 import dotenv from "dotenv"
 // to use the above syntax of dotenv, we need to add something in script dev in package.json
-import mongoose from "mongoose"
 import connectDB from "./db/index.js";
 import { app } from "./app.js";
 

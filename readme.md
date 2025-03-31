@@ -23,4 +23,40 @@ then there are two approaches to connect to db one is ifi and second is in db
 ## we use app.use() for middlewares and having configurations
 
 ## step 5
-Install cookie-parser and cors then import it in app.js 
+Install cookie-parser and cors then import it in app.js <br/>
+
+All the configurations and middlewares are only in app.js then we need to import app.js in src/index.js .
+
+
+## cookies
+
+What Are Cookies in Web Development?
+Cookies are small pieces of data stored on a user's browser by websites. They help websites remember users, store preferences, and track activity across sessions.
+
+Think of cookies like a note that a website gives to your browser. When you visit the website again, your browser returns the note, helping the website recognize you.
+<br/>
+Why Are Cookies Used?
+Session Management – Maintain user login sessions (e.g., staying logged in on a website).
+
+Personalization – Save user preferences (e.g., dark mode, language settings).
+
+Tracking & Analytics – Monitor user activity for analytics and targeted ads.
+
+## cookieParser
+
+What is cookie-parser?
+cookie-parser is a middleware for Express.js that is used to parse cookies attached to the client’s request. It helps retrieve cookie data in an easy-to-use format from the HTTP request headers.
+<br/>
+When a browser sends a request to a server, it may include cookies. These cookies are stored in the Cookie header of the request. The cookie-parser middleware reads this header, parses the cookies, and makes them available in req.cookies (and req.signedCookies for signed cookies).
+
+## No need of body parser because it is already included in express 
+
+## ( err , req , res , next ) middlewares are written in sequence 
+Middlewares are checkins like user is loggedin or not he is admin or not like that.
+
+## We want that everytime respones/Error we sent should be in same error 
+For this we need nodejs api error <br/>
+
+So node js gives us an Error class in which we can override the values and make it accordingly .
+<br/>
+Here we are setting our standard that if statusCode < 400 then it will be apiResponse for us otherwise it will be under apiError.
