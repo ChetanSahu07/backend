@@ -15,7 +15,7 @@ and then go to scripts in pacakage.json and write
 
 now install mongoose express and dotenv
 then there are two approaches to connect to db one is ifi and second is in db
--- Always remember the try catch and async await while connecting to db because db is another continent.
+-- Always remember the try catch and async await while connecting to db because db is in another continent.
 -- As early as possible , import the dotenv to our file because it make access of every .env file to all other files.
   traditional method to import dotenv : require('dotenv').config({path:'./env'})
   but we will use another method which need change in dev script. 
@@ -60,3 +60,26 @@ For this we need nodejs api error <br/>
 So node js gives us an Error class in which we can override the values and make it accordingly .
 <br/>
 Here we are setting our standard that if statusCode < 400 then it will be apiResponse for us otherwise it will be under apiError.
+
+So we have created ApiError and ApiResponse inside utility folder
+
+
+## Create the User and Video model and then install mongoose-agregate-paginate-v2 for writing complex aggregate quieries
+
+https://www.npmjs.com/package/mongoose-aggregate-paginate-v2
+
+<br/>
+
+this allows us to use real power of mongoose
+<br/>
+Mongoose also have many middlewares like 'pre' hook. Also we can use our own plugins 
+
+## Installing Bcrypt and JWT (JsonWebToken)
+Bcypt is used for hashing the password. There are two things: core Bcrypt and BcryptJs, we can any one of these.
+<br/>
+
+We have done encryption and decryption of the password using mongoose middleware and custom method.
+<br/>
+Then here we will create the acess_token key and refresh token key , and expiry of both in enviroment variables <br/>
+then create method to generate the both tokens.
+

@@ -20,9 +20,11 @@ app.use(express.urlencoded({extended:true , limit:"15kb"}))
 // You can see all the options of each configurations in the npm documentation.
 
 // This is used for saving the image or pdf requests in the public folder.
+// Here "Public" is the name of the folder where we are saving the images or pdfs.
 app.use(express.static("public"))
 
 // Now we also need to configure for cookies so that we can acess and set the cookies of user's browser.
+// cookieParser is a middleware which will parse the cookies and make it available in the request object.
 app.use(cookieParser())
 
 export {app}
