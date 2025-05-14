@@ -83,3 +83,8 @@ We have done encryption and decryption of the password using mongoose middleware
 Then here we will create the acess_token key and refresh token key , and expiry of both in enviroment variables <br/>
 then create method to generate the both tokens.
 
+## FILE UPLOADING
+
+--> Now we will see that how we will upload the files. <br>
+--> First thing need is Cloudinary
+
