@@ -86,5 +86,34 @@ then create method to generate the both tokens.
 ## FILE UPLOADING
 
 --> Now we will see that how we will upload the files. <br>
---> First thing need is Cloudinary
+--> First thing need is Cloudinary <br>
+--> Second thing is Multer <br>
+
+We have two step setting, Multer receives the file from the frontend (client).
+Multer is a middleware for handling multipart/form-data, which is primarily used for uploading files.<br/>
+Once Multer gives you the file (in memory or disk), your backend uses the cloudinary.uploader.upload() function to send the file to Cloudinary.<br/>
+
+In Cloudinary.js we write the code to fetch the file from server and upload to cloudinary.<br/>
+--> FS the by Default File System by Node.Js. It is for the file handling. It just need the path of file. <br/>
+--> We will use file linking and unlinking. Unlinking means simply deleting the file.<br/>
+--> Create a middleware to upload files on disk Storage with the help of multer.<br/>
+
+## Know all about HTTP 
+--> See Hitesh sir's pdf attached 
+
+## Second Part of project starts here 
+
+## Controllers and Routes
+### user.controller.js 
+Here we will create a function of register user.
+### Defining Route for register
+So the thing is that we will define middleware in app.js.<br/>
+When define a parent router /user then the controll is given to userRoute then it dicides where to go : /user/register  OR /user/login and also defines what functions to run in that routes.<br/>
+--> See the steps how it is working <br/>
+--> api/v1/users --> user.routes --> api/v1/users/register --> post request --> userRegister --> asyncHandler <br/>
+--> Check the response in the postman.<br/>
+Now we have commented that code and written actuall code for regestering user in database.
+
+
+
 

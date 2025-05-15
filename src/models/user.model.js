@@ -56,7 +56,7 @@ const userSchema = new Schema({
 
 userSchema.pre("save", async function(next){
 
-    if( ! this.isModified("password") ){ return next ; }
+    if( ! this.isModified("password") ){ return next() ; }
 
     this.password = await bcrypt.hash(this.password , 10 )
     next()
@@ -73,6 +73,7 @@ userSchema.methods.isPasswordCorrect = async function(userPassword){
     // The above will return true or false
 }
 
+
 userSchema.methods.generateAccessToken = function(){
 
     return jwt.sign(
@@ -88,6 +89,7 @@ userSchema.methods.generateAccessToken = function(){
         }
     )
 }
+// Remember that the expiry is written inside the object.
 
 userSchema.methods.generateRefreshToken = function(){
 

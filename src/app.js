@@ -27,4 +27,18 @@ app.use(express.static("public"))
 // cookieParser is a middleware which will parse the cookies and make it available in the request object.
 app.use(cookieParser())
 
+
+
+
+
+
+
+// Routes Import 
+import userRouter from './routes/user.routes.js'
+
+
+// Routes Declaration
+app.use("api/v1/users", userRouter)
+
+
 export {app}
