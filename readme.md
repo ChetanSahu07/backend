@@ -114,6 +114,12 @@ When define a parent router /user then the controll is given to userRoute then i
 --> Check the response in the postman.<br/>
 Now we have commented that code and written actuall code for regestering user in database.
 
+## Actual Registration of user 
+### Take the data from req.body 
+it gives the form and json data
+### handle file handling by multer middleware in user router
+see the syntax and details  
+
 
 
 

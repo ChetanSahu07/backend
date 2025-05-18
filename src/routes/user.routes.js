@@ -1,9 +1,30 @@
 import { Router } from "express";
 import {registerUser} from "../controllers/user.controller.js";
+import {upload} from "../middlewares/multer.middleware.js";
 
 const router = Router()
 
-router.route("/register").post(registerUser)  // registerUser is a method imported from "../controllers/user.controller.js"
+// we get
+// upload.fields
+// upload.any
+// upload.single
+// upload.array
+
+
+router.route("/register").post(
+    // This upload is from multer which is acting as middleware
+    upload.fields([
+        {
+            name:"avatar", // always remember that this name should be same as given in the frontend
+            maxCount:1
+        },
+        {
+            name:"coverImage",
+            maxCount:1
+        }
+    ]),
+    registerUser
+)  // registerUser is a method imported from "../controllers/user.controller.js"
 
 export default router ; 
 
