@@ -24,7 +24,9 @@ const registerUser = asyncHandler( async (req , res ) =>{
     // remove the refresh token and password from response 
     // return the reponse 
 
-
+    // console.log("Body", req.body );
+    // console.log("Files", req.files);
+    
     const { userName , fullName , email, password } = req.body
     //console.log(email , password);
 
@@ -33,7 +35,7 @@ const registerUser = asyncHandler( async (req , res ) =>{
     }
     // we can also write a check for checking the correct format for email
 
-    const userExist = User.findOne({
+    const userExist = await User.findOne({
         $or: [{userName}, {email}]
     })
 
@@ -49,14 +51,23 @@ const registerUser = asyncHandler( async (req , res ) =>{
     // the path will will give the path of avatar saved by multer
 
     const avatarLocalPath = req.files?.avatar[0]?.path ;
-    const converImageLocalPath = req.files?.covarImage[0]?.path ;
+    // const converImageLocalPath = req.files?.coverImage[0]?.path ;
 
+    let converImageLocalPath;
+    //console.log(req.files);
+
+    if( req.files && Array.isArray(req.files.coverImage) ){
+        converImageLocalPath = req.files.coverImage[0].path ; 
+    }
+    
     if( !avatarLocalPath ){
         throw new ApiError(400, "Avatar is required!")
     }
 
     const avatar = await uploadOnCloudinary(avatarLocalPath) ;
     const coverImage = await uploadOnCloudinary(converImageLocalPath);
+
+    //console.log(avatar)
 
     if( !avatar ){
         throw new ApiError(400, "Avatar is required!")
@@ -70,6 +81,9 @@ const registerUser = asyncHandler( async (req , res ) =>{
         password,
         email
     })
+
+    // console.log("user" , user);
+    
 
     const createdUser = await User.findById(user._id).select(
         "-password -refreshToken"
