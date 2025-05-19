@@ -118,8 +118,16 @@ Now we have commented that code and written actuall code for regestering user in
 ### Take the data from req.body 
 it gives the form and json data
 ### handle file handling by multer middleware in user router
-see the syntax and details  
+see the syntax and details 
+### The steps to register the user is now available in the user.controller.js 
 
 
+##  login User 
+--> For login in user what we need to do is that we need to create access and refresh token <br/>
+--> And then properly send the access and refresh token to the user through cookies .
+
+## Logout usesr
+--> For loggin out the user what we need is that we need to design our own middleware <br/>
+--> And the middleware is for authentication 
 
 
